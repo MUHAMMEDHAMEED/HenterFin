@@ -131,7 +131,7 @@ body{
 }
 .btn-outline{
   background:transparent;
-  color:var(--text);
+    color:#fbf7ef;
   border:1px solid rgba(27,27,27,0.06);
 }
 
