@@ -36,8 +36,9 @@ body{
 
 /* Header */
 .site-header{
-  position:sticky;
+  position:fixed;
   top:0;
+  width:100%;
   z-index:80;
   backdrop-filter: blur(6px);
   background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
@@ -48,18 +49,46 @@ body{
   align-items:center;
   justify-content:space-between;
   gap:20px;
+  width: calc(100% - 40px);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 0;
 }
-.brand h1{
-  margin:0;
-  font-size:20px;
-  letter-spacing:0.4px;
-  color:var(--text);
+/* Brand layout */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.brand .tag{
-  margin:0;
-  font-size:12px;
-  color:var(--muted);
+
+/* Stack text vertically */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+/* Keep your existing styles */
+.brand h1 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.4px;
+  color: var(--text);
+}
+
+.brand .tag {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Logo only */
+.logo {
+  width: 80px;
+  height: auto;
+  flex-shrink: 0;
+}
+
 
 /* Nav */
 .main-nav{
@@ -101,7 +130,8 @@ body{
 
 /* Hero */
 .hero{
-  padding:80px 0;
+  padding:120px 0 80px;
+  min-height: 100vh;
 }
 .hero-inner{
   display:grid;
@@ -131,7 +161,7 @@ body{
 }
 .btn-outline{
   background:transparent;
-    color:white;
+  color:#fbf7ef;
   border:1px solid rgba(27,27,27,0.06);
 }
 
@@ -201,7 +231,12 @@ body{
   font-weight:700;
   padding:8px 12px;
   border-radius:8px;
-  background:linear-gradient(90deg,var(--gold),var(--gold-dark));
+  /* From https://css.glass */
+background: rgba(237, 228, 211, 0.08);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(1.1px);
+-webkit-backdrop-filter: blur(1.1px);
   color:white;
 }
 
@@ -241,7 +276,39 @@ input, textarea{
   gap:12px;
   align-items:center;
 }
-.info-card{ padding:18px; border-radius:12px; box-shadow:var(--shadow) }
+.info-card{
+  position: relative;
+  color: #fff;
+  padding: 24px;
+  border-radius: 14px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background-image: url("assets/Add a heading_20251230_213206_0000 copy.png");
+}
+.info-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.65)
+  );
+  z-index: 0;
+}
+.info-card *{
+  position: relative;
+  z-index: 1;
+}
+.info-card .muted { color: rgba(255,255,255,0.8); }
+.info-card strong { color: #fff; }
+.info-card .info-list li { color: rgba(255,255,255,0.8); }
+.info-card .pill { color: #fff; background: rgba(255,255,255,0.1); }
 .info-list{ list-style:none; padding:0; margin:12px 0 0 }
 .info-list li{ margin-bottom:8px; color:var(--muted) }
 .pill{ display:inline-block; text-decoration:none; padding:8px 10px; border-radius:999px; background:rgba(0,0,0,0.04); color:var(--text); margin-right:8px; font-weight:600 }
@@ -265,7 +332,7 @@ input, textarea{
 @media (max-width:780px){
   .container{ padding:30px; }
   .header-inner{ gap:10px; }
-  .main-nav{ display:none; }
+  .main-nav{ display:bl; }
   .hamburger{ display:block; }
   .main-nav.open{ display:flex; position:absolute; right:20px; top:68px; background:white; border-radius:12px; padding:12px; box-shadow:var(--shadow); flex-direction:column; }
   .hero-inner{ grid-template-columns:1fr; gap:26px; padding:28px 0; }
@@ -282,9 +349,154 @@ input, textarea{
   from { transform: translateY(8px); opacity:0 }
   to   { transform: translateY(0); opacity:1 }
 }
-.card, .service-card, .promise, .image-card{
-  animation: floatUp .6s ease both;
+/* ===============================
+   Cards with Background Images
+================================ */
+
+.card,
+.service-card,
+.promise{
+  position: relative;
+  color: #fff;
+  padding: 24px;
+  border-radius: 14px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
+
+/* dark overlay */
+.card::before,
+.service-card::before,
+.promise::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.65)
+  );
+  z-index: 0;
+}
+
+/* text above overlay */
+.card *,
+.service-card *,
+.promise *{
+  position: relative;
+  z-index: 1;
+  /*individual */
+}
+.why-grid .card:nth-child(1){
+  background-image:url("https://images.unsplash.com/photo-1556761175-4b46a572b786");
+}
+.why-grid .card:nth-child(2){
+  background-image:url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40");
+}
+.why-grid .card:nth-child(3){
+  background-image:url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d");
+}
+.why-grid .card:nth-child(4){
+  background-image:url("https://images.unsplash.com/photo-1507679799987-c73779587ccf");
+}
+/* SERVICES */
+.services-grid .service-card:nth-child(1){
+  background-image:url("assets/company-registration.jpg");
+}
+.services-grid .service-card:nth-child(2){
+  background-image:url("https://images.unsplash.com/photo-1554224154-22dec7ec8818");
+}
+.services-grid .service-card:nth-child(3){
+  background-image:url("assets/Income-Tax-Return-Forms.jpg");
+}
+.services-grid .service-card:nth-child(4){
+  background-image:url("assets/trademark.jpeg");
+}
+.services-grid .service-card:nth-child(5){
+  background-image:url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4");
+}
+.services-grid .service-card:nth-child(6){
+  background-image:url("https://images.unsplash.com/photo-1521791136064-7986c2920216");
+}
+/* PROMISES */
+.promises-grid .promise:nth-child(1){
+  background-image:url("assets/documents.jpeg");
+}
+.promises-grid .promise:nth-child(2){
+  background-image:url("https://images.unsplash.com/photo-1529333166437-7750a6dd5a70");
+}
+.promises-grid .promise:nth-child(3){
+  background-image:url("https://images.unsplash.com/photo-1492724441997-5dc865305da7");
+}
+
+ /* clients */
+ #clients .service-card:nth-child(1){
+  background-image:url("assets/gray whle logo.png");
+}
+
+#clients .service-card:nth-child(2){
+  background-image:url("assets/9798569f-d16f-4925-bae7-2af59579432d_20250826_172018_0000.png");
+}
+
+#clients .service-card:nth-child(3){
+  background-image:url("assets/Untitled design_20251108_144002_0000.png");
+}
+
+#clients .service-card:nth-child(4){
+  background-image:url("assets/BOWER.png");
+}
+
+#clients .service-card:nth-child(5){
+  background-image:url("assets/1767288715827.png");
+}
+
+#clients .service-card:nth-child(6){
+  background-image:url("assets/fortune logo.png");
+}
+
+#clients .service-card:nth-child(7){
+  background-image:url("assets/edu help.jpg");
+}
+#clients .service-card:nth-child(8){
+  background-image:url("assets/logo png full.png");
+}
+#clients .service-card:nth-child(9){
+  background-image:url("assets/ltrsavellg.png");
+}
+#clients .service-card:nth-child(10){
+  background-image:url("assets/1761393914535.png");
+}
+#clients .service-card:nth-child(11){
+  background-image:url("assets/Fill bayth logo_20251231_235748_0000.png");
+}
+#clients .service-card:nth-child(12){
+  background-image:url("assets/Aquilatoursandsafaris_20260101_231751_0000.png");
+}
+
+
+
+.card,
+.service-card,
+.promise{
+  transition:
+    transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+    box-shadow 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: transform;
+}
+
+.card:hover,
+.service-card:hover,
+.promise:hover{
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+}
+
+
 
 /* utility */
 .muted{ color:var(--muted); font-size:14px }
