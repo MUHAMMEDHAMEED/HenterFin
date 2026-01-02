@@ -289,7 +289,7 @@ input, textarea{
   background-position: center;
   overflow: hidden;
   box-shadow: var(--shadow);
-  background-image: url("assets/Add a heading_20251230_213206_0000 copy.png");
+  background-image: url("Add a heading_20251230_213206_0000 copy.png");
 }
 .info-card::before{
   content: "";
@@ -406,16 +406,16 @@ input, textarea{
 }
 /* SERVICES */
 .services-grid .service-card:nth-child(1){
-  background-image:url("assets/company-registration.jpg");
+  background-image:url("company-registration.jpg");
 }
 .services-grid .service-card:nth-child(2){
   background-image:url("https://images.unsplash.com/photo-1554224154-22dec7ec8818");
 }
 .services-grid .service-card:nth-child(3){
-  background-image:url("assets/Income-Tax-Return-Forms.jpg");
+  background-image:url("Income-Tax-Return-Forms.jpg");
 }
 .services-grid .service-card:nth-child(4){
-  background-image:url("assets/trademark.jpeg");
+  background-image:url("trademark.jpeg");
 }
 .services-grid .service-card:nth-child(5){
   background-image:url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4");
@@ -425,7 +425,7 @@ input, textarea{
 }
 /* PROMISES */
 .promises-grid .promise:nth-child(1){
-  background-image:url("assets/documents.jpeg");
+  background-image:url("documents.jpeg");
 }
 .promises-grid .promise:nth-child(2){
   background-image:url("https://images.unsplash.com/photo-1529333166437-7750a6dd5a70");
@@ -436,46 +436,46 @@ input, textarea{
 
  /* clients */
  #clients .service-card:nth-child(1){
-  background-image:url("assets/gray whle logo.png");
+  background-image:url("gray whle logo.png");
 }
 
 #clients .service-card:nth-child(2){
-  background-image:url("assets/9798569f-d16f-4925-bae7-2af59579432d_20250826_172018_0000.png");
+  background-image:url("9798569f-d16f-4925-bae7-2af59579432d_20250826_172018_0000.png");
 }
 
 #clients .service-card:nth-child(3){
-  background-image:url("assets/Untitled design_20251108_144002_0000.png");
+  background-image:url("Untitled design_20251108_144002_0000.png");
 }
 
 #clients .service-card:nth-child(4){
-  background-image:url("assets/BOWER.png");
+  background-image:url("BOWER.png");
 }
 
 #clients .service-card:nth-child(5){
-  background-image:url("assets/1767288715827.png");
+  background-image:url("1767288715827.png");
 }
 
 #clients .service-card:nth-child(6){
-  background-image:url("assets/fortune logo.png");
+  background-image:url("fortune logo.png");
 }
 
 #clients .service-card:nth-child(7){
-  background-image:url("assets/edu help.jpg");
+  background-image:url("edu help.jpg");
 }
 #clients .service-card:nth-child(8){
-  background-image:url("assets/logo png full.png");
+  background-image:url("logo png full.png");
 }
 #clients .service-card:nth-child(9){
-  background-image:url("assets/ltrsavellg.png");
+  background-image:url("ltrsavellg.png");
 }
 #clients .service-card:nth-child(10){
-  background-image:url("assets/1761393914535.png");
+  background-image:url("1761393914535.png");
 }
 #clients .service-card:nth-child(11){
-  background-image:url("assets/Fill bayth logo_20251231_235748_0000.png");
+  background-image:url("Fill bayth logo_20251231_235748_0000.png");
 }
 #clients .service-card:nth-child(12){
-  background-image:url("assets/Aquilatoursandsafaris_20260101_231751_0000.png");
+  background-image:url("Aquilatoursandsafaris_20260101_231751_0000.png");
 }
 
 
