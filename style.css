@@ -496,6 +496,93 @@ input, textarea{
   box-shadow: 0 24px 60px rgba(0,0,0,0.25);
 }
 
+/* ================================
+   HERO + HEADER RESPONSIVE FIX
+   ================================ */
+
+/* Prevent header overlap */
+.site-header{
+  padding: 6px 0;
+}
+
+/* HERO FULL HEIGHT + RESPONSIVE */
+.hero{
+  min-height: 100svh; /* mobile safe viewport */
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+/* Background image behaves correctly */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  z-index:0;
+}
+
+/* Overlay layer */
+.hero > div:first-child{
+  position:absolute;
+  inset:0;
+}
+
+/* Content layer */
+.hero-inner{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 120px 0 80px;
+}
+
+/* Text scaling */
+.hero-text h2{
+  font-size: clamp(22px, 4vw, 34px);
+  line-height: 1.2;
+}
+
+.hero-text p{
+  font-size: clamp(14px, 2.5vw, 17px);
+}
+
+/* Buttons wrap nicely */
+.hero-ctas{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ================================
+   MOBILE FIXES
+   ================================ */
+
+@media (max-width: 780px){
+
+  .site-header{
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-inner{
+    padding: 100px 20px 60px;
+    text-align: center;
+  }
+
+  .hero-text h2{
+    font-size: 22px;
+  }
+
+  .hero-text p{
+    font-size: 15px;
+  }
+
+  .hero-ctas{
+    justify-content: center;
+  }
+
+}
 
 
 /* utility */
